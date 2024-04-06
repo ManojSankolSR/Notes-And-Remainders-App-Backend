@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
 
 
 app.use(cors({
-    origin:'http://localhost:3000',
+    origin:'https://notes-and-remainders-app.onrender.com',
     methods:['POST'],
 }))
 
