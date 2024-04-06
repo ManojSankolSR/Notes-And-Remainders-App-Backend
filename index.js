@@ -3,6 +3,7 @@ const scheduler=require('node-schedule')
 const bodyParser=require('body-parser')
 const nodemailer=require('nodemailer')
 const moment=require('moment');
+const cors= require('cors');
 
 
 const app=express();
@@ -22,6 +23,12 @@ const transporter = nodemailer.createTransport({
         rejectUnauthorized:true
     }
   });
+
+
+app.use(cors({
+    origin:'http://localhost:3000',
+    methods:['POST'],
+}))
 
 app.use(bodyParser.urlencoded({extended:true}));
 
