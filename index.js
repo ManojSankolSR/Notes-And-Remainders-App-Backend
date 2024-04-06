@@ -26,8 +26,14 @@ const transporter = nodemailer.createTransport({
 app.use(bodyParser.urlencoded({extended:true}));
 
 
-app.post('/Cancel',(req,res)=>{
-    scheduler.cancelJob(req.id);
+app.post('/cancel',(req,res)=>{
+    console.log(req.body.id);
+    const isCanceled=scheduler.cancelJob(req.body.id);
+    res.send(JSON.stringify({
+        canceled:isCanceled,
+    }));
+    res.end();
+    console.log(isCanceled);
 })
 
 
